@@ -12,6 +12,40 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
+        android:background="@color/red"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/a9i"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/agr"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/aao"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/a03"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:orientation="horizontal">
 
         <net.lucode.hackware.magicindicator.MagicIndicator
@@ -25,12 +59,12 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:src="@mipmap/abr"/>
     </LinearLayout>
 
 
-    <FrameLayout
-        android:id="@+id/frame_home"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 public abstract class BaseFragment extends Fragment {
     protected Context mContext;
-
+    protected Bundle mBundle;
     /**
      * 初始化上下文
      *
@@ -26,6 +26,7 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
+        mBundle=getArguments();
     }
 
     /**
