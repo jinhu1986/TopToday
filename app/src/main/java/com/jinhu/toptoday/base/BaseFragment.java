@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected Bundle mBundle;
+
     /**
      * 初始化上下文
      *
@@ -26,7 +27,7 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
-        mBundle=getArguments();
+        mBundle = getArguments();
     }
 
     /**
@@ -61,7 +62,13 @@ public abstract class BaseFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initData();
+        setListener();
     }
+
+    /**
+     * 子类用于设置监听
+     */
+    protected abstract void setListener();
 
     /**
      * 子类用于初始化数据

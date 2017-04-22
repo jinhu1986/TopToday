@@ -4,11 +4,6 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="首页"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -16,20 +11,24 @@
         android:orientation="horizontal"
         >
 
-        <ImageView
+        <com.jinhu.toptoday.util.CircleImageView
+            android:id="@+id/iv_slid_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/a9i"/>
+            android:src="@mipmap/ww"/>
 
         <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
             android:src="@mipmap/agr"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/aao"/>
+            android:layout_gravity="center"
+            android:src="@mipmap/dynamic_refresh_normal"/>
 
         <View
             android:layout_width="0dp"
@@ -39,7 +38,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/a03"/>
+            android:src="@mipmap/ic_drawer_search_normal"/>
 
     </LinearLayout>
 

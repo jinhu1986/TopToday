@@ -15,12 +15,12 @@ import org.xutils.db.annotation.Table;
  */
 @Table(name = "news", onCreated = "")
 public class ChildInfo {
-    /**
+/*    *
      * name = "id"：数据库表中的一个字段
      * isId = true：是否是主键
      * autoGen = true：是否自动增长
-     * property = "NOT NULL"：添加约束
-     */
+     * property = "NOT NULL"：添加约束*/
+
     @Column(name = "id", isId = true, autoGen = true, property = "NOT NULL")
     private int id;
     @Column(name = "c_name")
@@ -31,10 +31,20 @@ public class ChildInfo {
     private String cImage;
     @Column(name = "c_category")
     private String cCategory;
+    @Column(name = "c_url")
+    private String cUrl;
 
 
     //默认的构造方法必须写出，如果没有，这张表是创建不成功的
     public ChildInfo() {
+    }
+
+    public String getcUrl() {
+        return cUrl;
+    }
+
+    public void setcUrl(String cUrl) {
+        this.cUrl = cUrl;
     }
 
     public String getcCategory() {

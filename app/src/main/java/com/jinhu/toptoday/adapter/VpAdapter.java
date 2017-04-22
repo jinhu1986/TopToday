@@ -4,8 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.jinhu.toptoday.fragment.ItemFragment;
 import com.jinhu.toptoday.util.Url;
+
+import java.util.List;
 
 /**
  * 类的用途：
@@ -16,19 +17,21 @@ import com.jinhu.toptoday.util.Url;
 public class VpAdapter extends FragmentPagerAdapter {
     //List<Fragment> list;
     private String[] titles = Url.TITLES;
+    private List<Fragment> list;
 
-    public VpAdapter(FragmentManager fm) {
+    public VpAdapter(FragmentManager fm, List<Fragment> list) {
         super(fm);
+        this.list = list;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return ItemFragment.getInstance(Url.ADDS[position]);
+        return list.get(position);
     }
 
     @Override
     public int getCount() {
-        return Url.ADDS.length;
+        return list.size();
     }
 
 }

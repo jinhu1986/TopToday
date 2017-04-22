@@ -60,12 +60,12 @@
         "source": "C:\\Users\\jinhu\\.android\\build-cache\\d14bc43bcee76b604be020f5872d0020e46089c6\\output\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
-        "merged": "C:\\AndroidStudioProjects\\TopToday\\magicindicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\jinhu\\.android\\build-cache\\d14bc43bcee76b604be020f5872d0020e46089c6\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
-    },
-    {
         "merged": "C:\\AndroidStudioProjects\\TopToday\\magicindicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_colored_material.xml",
         "source": "C:\\Users\\jinhu\\.android\\build-cache\\d14bc43bcee76b604be020f5872d0020e46089c6\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "C:\\AndroidStudioProjects\\TopToday\\magicindicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\jinhu\\.android\\build-cache\\d14bc43bcee76b604be020f5872d0020e46089c6\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "C:\\AndroidStudioProjects\\TopToday\\magicindicator\\build\\intermediates\\res\\merged\\release\\drawable\\abc_cab_background_top_material.xml",

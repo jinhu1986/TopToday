@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jinhu.toptoday.R;
-import com.jinhu.toptoday.db.ChildInfo;
+import com.jinhu.toptoday.bean.JsonBean;
 import com.jinhu.toptoday.util.ImageUtils;
 
 import java.util.List;
@@ -21,9 +21,9 @@ import java.util.List;
 
 public class LvAdapter extends BaseAdapter {
     Context context;
-    List<ChildInfo> list;
+    List<JsonBean.ResultBean.DataBean> list;
 
-    public LvAdapter(Context context, List<ChildInfo> list) {
+    public LvAdapter(Context context, List<JsonBean.ResultBean.DataBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -56,9 +56,9 @@ public class LvAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        ImageUtils.initImage(holder.iamge, list.get(position).getcImage(), false);
-        holder.text_01.setText(list.get(position).getcTitle());
-        holder.text_02.setText(list.get(position).getcName());
+        ImageUtils.initImage(holder.iamge, list.get(position).getThumbnail_pic_s(), false);
+        holder.text_01.setText(list.get(position).getTitle());
+        holder.text_02.setText(list.get(position).getAuthor_name());
         return convertView;
     }
 

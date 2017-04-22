@@ -15,9 +15,9 @@ import org.xutils.x;
 public class DbUtils {
     private static DbManager sDb;
 
-    /**
-     * 初始化DaoConfig配置
-     */
+    /*   *
+        * 初始化DaoConfig配置
+        */
     public static DbManager getDb() {
         DbManager.DaoConfig daoConfig = new DbManager.DaoConfig()
                 //设置数据库名，默认xutils.db

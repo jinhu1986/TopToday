@@ -35,7 +35,7 @@ public class MagicUtils {
      * @return
      */
     public static void initMagicIndicator(Context context, MagicIndicator mMagicIndicator, final ViewPager mViewPager, final List<String> mDataList) {
-        mMagicIndicator.setBackgroundColor(Color.parseColor("#d43d3d"));
+        // mMagicIndicator.setBackgroundColor(Color.parseColor("#d43d3d"));
         sMCommonNavigator = new CommonNavigator(context);
         sMCommonNavigator.setSkimOver(true);
         sMCommonNavigator.setAdapter(new CommonNavigatorAdapter() {
@@ -49,8 +49,8 @@ public class MagicUtils {
             public IPagerTitleView getTitleView(Context context, final int index) {
                 ClipPagerTitleView clipPagerTitleView = new ClipPagerTitleView(context);
                 clipPagerTitleView.setText(mDataList.get(index));
-                clipPagerTitleView.setTextColor(Color.parseColor("#f2c4c4"));
-                clipPagerTitleView.setClipColor(Color.WHITE);
+                clipPagerTitleView.setTextColor(Color.GRAY);
+                clipPagerTitleView.setClipColor(Color.RED);
                 clipPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

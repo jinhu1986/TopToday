@@ -2,25 +2,81 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.jinhu.toptoday">
 
+    <!-- 短信权限 -->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!-- 往SDCard写入数据权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
 
     <application
         android:name=".app.MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/aac"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/aac"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.NewMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".login_activty.LoginActivity"/>
+        <activity android:name=".login_activty.CAPTCHAActivity"/>
+        <activity android:name=".login_activty.PhoneLoginActivity"/>
+        <activity android:name=".login_activty.PhoneRegisterActivity"/>
+        <activity android:name=".login_activty.PwdBackActivity"/>
+        <activity android:name=".login_activty.PwdBackCAPTCHA"/>
+        <activity android:name=".login_activty.UserAgreementActivity"/>
+        <activity android:name=".login_activty.UserInfoSetActivity"/>
+        <activity android:name=".activity.ChannelActivity"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value=" 58f41fcb310c9368fb000072">
+        </meta-data>
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1106105282"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".activity.NewsActivity">
+        </activity>
+        <activity android:name=".activity.MyAcitivty">
+        </activity>
+        <activity android:name=".login_activty.ProtogenesisRegisterAcitvity">
+        </activity>
+        <activity android:name=".activity.AccountAcitivity">
         </activity>
     </application>
 

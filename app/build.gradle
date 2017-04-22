@@ -18,16 +18,30 @@ android {
         }
     }
 }
-
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile project(':magicindicator')
+    compile project(':library')
+    //各种工具类的依赖
+    compile name: 'SMSSDK-2.1.4', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.4', ext: 'aar'
+    compile files('libs/open_sdk_r5781.jar')
+    compile project(':xlistviewlibrary')
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
     compile 'org.xutils:xutils:3.5.0'
     compile 'com.google.code.gson:gson:2.8.0'
-    compile project(':magicindicator')
+    compile 'com.blankj:utilcode:1.3.7'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    testCompile 'junit:junit:4.12'
+    compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    compile 'com.squareup.okhttp3:okhttp:3.7.0'
 }
