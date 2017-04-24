@@ -1,6 +1,7 @@
 package com.jinhu.toptoday.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jinhu.toptoday.R;
+import com.jinhu.toptoday.app.MyApp;
+import com.jinhu.toptoday.util.Login;
 
 import static com.jinhu.toptoday.R.id.iv_back_include_head_login;
 import static com.jinhu.toptoday.R.id.tv_back_include_head_login;
@@ -26,6 +29,7 @@ public class MyAcitivty extends AppCompatActivity {
     private CheckBox mHomePagerCheck;
     private TextView mHomePagerTextGone;
     private LinearLayout mActivityHomePager;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +40,33 @@ public class MyAcitivty extends AppCompatActivity {
         //
         initData();
         //
+        initLogin();
+        //
         setListen();
     }
 
     private void initData() {
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        String image = intent.getStringExtra("image");
-        Glide.with(MyAcitivty.this).load(image).into(mHomePagerImage);
+        //
+        mSharedPreferences = MyApp.getSharedPrefernces(MyAcitivty.this);
+    }
+
+    /**
+     * 判断登录的逻辑
+     */
+    private void initLogin() {
+        //登录判断
+        String imageUrl = mSharedPreferences.getString(Login.IMAGE, "");
+        String name = mSharedPreferences.getString(Login.NAME, "");
+        switch (mSharedPreferences.getInt(Login.STATE, -1)) {
+            case Login.TEACHER:
+                Glide.with(MyAcitivty.this).load(imageUrl).into(mHomePagerImage);
+                mHomePagerText.setText(name);
+                break;
+            case Login.QQ:
+                Glide.with(MyAcitivty.this).load(imageUrl).into(mHomePagerImage);
+                mHomePagerText.setText(name);
+                break;
+        }
     }
 
     private void setListen() {
@@ -60,6 +83,7 @@ public class MyAcitivty extends AppCompatActivity {
             public void onClick(View v) {
                 Intent mIntent = new Intent(MyAcitivty.this, AccountAcitivity.class);
                 startActivity(mIntent);
+                finish();
             }
         });
         //设置，点击跳转到账号管理

@@ -150,25 +150,5 @@ public class PhoneLoginActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-       /* HttpUtils.getInstance().login(Url.LINK_MOBILE_LOGIN,
-                new String[]{"username", "password", "client"},
-                new String[]{phone, pwd, Url.SYSTEM_TYPE},
-                new HttpUtils.MyHttpCallback() {
-                    @Override
-                    public void onSuccess(String result) {
-                        Toast.makeText(PhoneLoginActivity.this, result, Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onError(String errorMsg) {
-
-                    }
-
-                    @Override
-                    public void onFinished() {
-
-                    }
-                });*/
-
     }
 }

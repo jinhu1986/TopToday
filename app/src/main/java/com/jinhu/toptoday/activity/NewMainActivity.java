@@ -18,6 +18,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -74,6 +75,8 @@ public class NewMainActivity extends FragmentActivity {
     private String mImageUrl;
     private SharedPreferences.Editor mEditor;
     private SharedPreferences mSharedPreferences;
+    private TextView mName_loged_sliding;
+    private LinearLayout mLinearLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,25 +114,24 @@ public class NewMainActivity extends FragmentActivity {
      */
     private void initLogin() {
         //登录判断
-        mSharedPreferences = MyApp.getSharedPrefernces(NewMainActivity.this);
+        String imageUrl = mSharedPreferences.getString(Login.IMAGE, "");
+        String name = mSharedPreferences.getString(Login.NAME, "");
         switch (mSharedPreferences.getInt(Login.STATE, -1)) {
             case Login.TEACHER:
-              /*  String imageUrl = mSharedPreferences.getString(Login.IMAGE, "");
-                String name = mSharedPreferences.getString(Login.NAME, "");
-                Glide.with(NewMainActivity.this).load(imageUrl).into(mIv_loged_sliding);
-                Glide.with(NewMainActivity.this).load(imageUrl).into(mImageView);*/
-                break;
-            case Login.QQ:
-                String imageUrl = mSharedPreferences.getString(Login.IMAGE, "");
-                String name = mSharedPreferences.getString(Login.NAME, "");
-                Glide.with(NewMainActivity.this).load(imageUrl).into(mIv_loged_sliding);
-                Glide.with(NewMainActivity.this).load(imageUrl).into(mImageView);
                 //侧滑页显示登录
                 mLayout.setVisibility(View.GONE);
-                mIv_loged_sliding.setVisibility(View.VISIBLE);
-                mName = "";
-                mImageView.setImageResource(R.mipmap.l);
-                mIv_loged_sliding.setImageResource(R.mipmap.l);
+                mLinearLayout.setVisibility(View.VISIBLE);
+                Glide.with(NewMainActivity.this).load(imageUrl).into(mIv_loged_sliding);
+                Glide.with(NewMainActivity.this).load(imageUrl).into(mImageView);
+                mName_loged_sliding.setText(name);
+                break;
+            case Login.QQ:
+                //侧滑页显示登录
+                mLayout.setVisibility(View.GONE);
+                mLinearLayout.setVisibility(View.VISIBLE);
+                Glide.with(NewMainActivity.this).load(imageUrl).into(mIv_loged_sliding);
+                Glide.with(NewMainActivity.this).load(imageUrl).into(mImageView);
+                mName_loged_sliding.setText(name);
                 break;
         }
     }
@@ -148,6 +150,9 @@ public class NewMainActivity extends FragmentActivity {
      * 数据准备
      */
     private void initData() {
+        //
+        mSharedPreferences = MyApp.getSharedPrefernces(NewMainActivity.this);
+        //
         mFragList = new ArrayList<>();
         mUserChannel = (ArrayList<ChannelItem>) ChannelManage.getManage(MyApp.getApp().getSQLHelper()).getUserChannel();
         Map<String, String> map = Url.getADD();
@@ -299,9 +304,12 @@ public class NewMainActivity extends FragmentActivity {
                         edit.putString(Login.IMAGE, mImageUrl);
                         edit.putInt(Login.STATE, Login.QQ);
                         edit.commit();
+                        //设置头像
+                        mLayout.setVisibility(View.GONE);
+                        mLinearLayout.setVisibility(View.VISIBLE);
                         Glide.with(NewMainActivity.this).load(mImageUrl).into(mIv_loged_sliding);
                         Glide.with(NewMainActivity.this).load(mImageUrl).into(mImageView);
-                        //判断登录
+                        mName_loged_sliding.setText(mName);
                     }
 
                     @Override
@@ -324,9 +332,8 @@ public class NewMainActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NewMainActivity.this, MyAcitivty.class);
-                intent.putExtra("name", mName);
-                intent.putExtra("image", mImageUrl);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -364,6 +371,8 @@ public class NewMainActivity extends FragmentActivity {
         mIv_qq_sliding = (ImageView) menu.findViewById(R.id.iv_qq_sliding);
         mBtn_night_style = (RadioButton) menu.findViewById(R.id.btn_night_style);
         mLayout = (LinearLayout) menu.findViewById(R.id.layout_logs_sliding);
+        mName_loged_sliding = (TextView) menu.findViewById(R.id.tv_name_loged_sliding);
+        mLinearLayout = (LinearLayout) menu.findViewById(R.id.linear_sliding);
     }
 
     /**
